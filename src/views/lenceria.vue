@@ -1,8 +1,8 @@
 <template>
-    <div>
-        <h2>Fajas Postparto</h2>
-        <ProductList :products="filteredProducts" />
-    </div>
+  <div class="postparto-container">
+    <h2 class="postparto-title">Fajas Postparto</h2>
+    <ProductList :products="filteredProducts" />
+  </div>
 </template>
 
 <script setup>
@@ -62,8 +62,32 @@ onMounted(() => {
 </script>
 
 <style scoped>
-h2 {
-    font-family: 'Playfair Display', serif;
-  font-weight: 500; 
+/* Contenedor general */
+.postparto-container {
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Estilo del título de la página */
+.postparto-title {
+  font-family: 'Bodoni Moda', serif;
+  font-weight: 600;
+  font-size: clamp(1.5rem, 4vw, 2.5rem); /* Tamaño de fuente adaptable */
+  text-align: center;
+  margin-bottom: 30px;
+  color: #333;
+}
+
+/* Media query para pantallas más pequeñas */
+@media (max-width: 768px) {
+  .postparto-container {
+    padding: 10px; /* Ajusta el padding para pantallas pequeñas */
+  }
+
+  .postparto-title {
+    font-size: 1.8rem; /* Reduce el tamaño del título en pantallas móviles */
+    margin-bottom: 15px; /* Ajusta el espacio debajo del título */
+  }
 }
 </style>

@@ -172,4 +172,39 @@ input[type="password"]:focus {
     opacity: 1;
   }
 }
+@media (max-width: 480px) {
+  .modal-content {
+    padding: 20px;
+    max-width: 90%;
+    font-size: 14px;
+  }
+
+  h2 {
+    font-size: 20px;
+  }
+
+  label {
+    font-size: 13px;
+  }
+
+  input[type="text"],
+  input[type="password"] {
+    padding: 8px;
+    font-size: 14px;
+  }
+
+  .login-button {
+    width: 100%;
+    font-size: 15px;
+    padding: 10px;
+  }
+
+  .register-link {
+    font-size: 13px;
+  }
+
+  .close-button {
+    font-size: 13px;
+  }
+}
 </style>

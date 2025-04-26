@@ -234,3 +234,200 @@ onMounted(() => {
     fetchProducts();
 });
 </script>
+
+
+<style scoped>
+/* Estilo general para el contenedor */
+.container {
+    padding: 20px;
+}
+
+/* Títulos */
+h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #343a40;
+}
+
+/* Botón "Nuevo" que abre el modal */
+.text-end {
+    margin-bottom: 15px;
+    text-align: right;
+}
+
+.text-end .btn-color {
+    background-color: #ee9611;
+    color: white;
+    font-size: 16px;
+}
+
+.text-end .btn-color:hover {
+    background-color: #ddc22c;
+}
+
+/* Estilo para la tabla de productos */
+.table-products {
+    width: 100%;
+    margin-top: 20px;
+}
+
+.table-products th,
+.table-products td {
+    padding: 12px;
+    text-align: center;
+    border: 1px solid #ddd;
+}
+
+.table-products thead {
+    background-color: #f8f9fa;
+}
+
+.table-products tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.table-products tbody tr:hover {
+    background-color: #f1f1f1;
+    cursor: pointer;
+}
+
+/* Modal */
+.modal-lg {
+    max-width: 100%;
+}
+
+/* Estilo de los inputs */
+input[type="text"], input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+input[type="text"]:focus, input[type="number"]:focus {
+    outline: none;
+    border-color: #ee9611;
+}
+
+/* Ajustes para botones dentro del modal */
+button {
+    background-color: #ee9611;
+    border: none;
+    padding: 8px 15px;
+    color: white;
+    font-size: 14px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+button:hover {
+    background-color: #ddc22c;
+}
+
+/* Ajustes para la lista de imágenes */
+ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 10px;
+}
+
+ul li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+ul li button {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    font-size: 12px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+ul li button:hover {
+    background-color: #c82333;
+}
+
+/* Media Queries para adaptabilidad en dispositivos móviles */
+@media (max-width: 768px) {
+    /* Ajustar la tabla para móviles */
+    .table-products {
+        display: block;
+        overflow-x: auto;
+    }
+
+    .table-products th, .table-products td {
+        font-size: 14px;
+        padding: 8px;
+    }
+
+    .table-products th {
+        background-color: #f8f9fa;
+        font-weight: bold;
+    }
+
+    /* Modal */
+    .modal-content {
+        padding: 15px;
+    }
+
+    /* Formularios en el modal */
+    input[type="text"], input[type="number"] {
+        font-size: 14px;
+        padding: 8px;
+    }
+
+    /* Botones dentro del modal */
+    button {
+        padding: 8px 12px;
+        font-size: 14px;
+    }
+
+    /* Botón "Nuevo" */
+    .text-end .btn-color {
+        font-size: 14px;
+        padding: 8px 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    /* Ajuste de la tabla */
+    .table-products {
+        font-size: 12px;
+    }
+
+    .table-products th, .table-products td {
+        padding: 6px;
+    }
+
+    /* Modal */
+    .modal-content {
+        padding: 10px;
+    }
+
+    /* Ajustes para inputs */
+    input[type="text"], input[type="number"] {
+        font-size: 12px;
+        padding: 6px;
+    }
+
+    /* Ajustes para botones */
+    button {
+        padding: 6px 10px;
+        font-size: 12px;
+    }
+
+    /* Ajuste de la lista de imágenes */
+    ul li button {
+        font-size: 10px;
+        padding: 4px 8px;
+    }
+}
+</style>

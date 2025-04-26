@@ -1,10 +1,9 @@
 <template>
-    <div>
-        <h2>Pijamas</h2>
-        <ProductList :products="filteredProducts" />
-    </div>
+  <div class="postparto-container">
+    <h2 class="postparto-title">Pijamas</h2>
+    <ProductList :products="filteredProducts" />
+  </div>
 </template>
-
 
 <script setup>
 import { ref, onMounted, computed } from 'vue';
@@ -14,21 +13,20 @@ import { getHeaderRequest } from '@/authService';
 import '@fontsource/bodoni-moda';
 import '@fontsource/bodoni-moda/700.css';
 
-
 const props = defineProps({
   searchQuery: {
     type: String,
     default: ''
   }
 });
-const baseUrl = import.meta.env.VITE_BASE_URL;
+
+const baseUrl = import.meta.env.VITE_BASE_URL + 'product/category/';
 const ListProduct = ref([]);
 const header = getHeaderRequest();
 
 const fetchProductsByCategory = async (category) => {
   try {
-    const response = await axios.get(baseUrl+"product/category/"+category, header);
-    console.log(response.data);
+    const response = await axios.get(baseUrl + category, header);
     return response.data;
   } catch (error) {
     console.error(`Error al cargar los productos de la categoría ${category}:`, error);
@@ -46,7 +44,6 @@ const fetchAllProducts = async () => {
   }
 
   ListProduct.value = allProducts;
-  console.log(ListProduct.value);
 };
 
 const filteredProducts = computed(() => {
@@ -61,8 +58,39 @@ onMounted(() => {
 </script>
 
 <style scoped>
-h2 {
-    font-family: 'Playfair Display', serif;
-  font-weight: 500; 
+/* Contenedor general con espacio en pantallas grandes y ajuste en pantallas móviles */
+.postparto-container {
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Estilo del título con tipografía adaptativa */
+.postparto-title {
+  font-family: 'Bodoni Moda', serif;
+  font-weight: 600;
+  font-size: clamp(1.5rem, 4vw, 2.5rem); /* Tamaño adaptable para diferentes resoluciones */
+  text-align: center;
+  margin-bottom: 30px;
+  color: #333;
+}
+
+/* Estilo para pantallas más pequeñas */
+@media (max-width: 768px) {
+  .postparto-container {
+    padding: 10px; /* Ajuste de relleno para pantallas pequeñas */
+  }
+
+  .postparto-title {
+    margin-bottom: 15px;
+    font-size: 1.8rem; /* Reducir el tamaño del título en pantallas móviles */
+  }
+
+  /* Ajustes de espaciado para listas de productos, si es necesario */
+  .product-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+  }
 }
 </style>

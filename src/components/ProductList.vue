@@ -22,7 +22,7 @@ const props = defineProps({
 <style scoped>
 .product-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fit, mi  nmax(200px, 1fr));
   gap: 20px;
   padding: 20px;
 }

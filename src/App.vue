@@ -26,7 +26,7 @@ const handleSearch = (query) => {
       <Banner />
       <TopBar @search="handleSearch" />
       <Navbar />
-      <main class="m-5">
+      <main class="m-5 m-sm-3 m-xs-2">
           <router-view :search-query="searchQuery"/>
           <ContactComponent class="contact" />
       </main>
@@ -42,8 +42,6 @@ const handleSearch = (query) => {
 
 #app {
   font-family: 'Playfair Display', serif; 
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: black;
 }
@@ -63,4 +61,15 @@ html, body {
 .contact {
   padding-bottom: 50px;
 }
+
+@media (max-width: 768px) {
+  main {
+    margin: 1rem;
+  }
+
+  .contact {
+    padding-bottom: 10px;
+  }
+}
+
 </style>

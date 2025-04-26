@@ -116,6 +116,7 @@ const reduceQuantity = (productId) => {
     padding: 5px;
     align-items: center;
     gap: 10px;
+    justify-content: space-around; /* Centra y distribuye los botones */
 }
 
 .quantity-button {
@@ -130,140 +131,218 @@ const reduceQuantity = (productId) => {
 .quantity-button:hover {
     background-color: #daa364;
 }
+
 .container { 
-  padding: 40px;
+    padding: 20px;
 }
+
 .cart-items {
-  list-style: none;
-  padding: 0;
-  margin: 0 0 20px 0;
+    list-style: none;
+    padding: 0;
+    margin: 0 0 20px 0;
 }
 
 .cart-item {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 0;
-  border-bottom: 1px solid #dee2e6;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #dee2e6;
 }
 
 .item-info {
-  display: flex;
-  flex-direction: row;
+    display: flex;
+    flex-direction: row;
 }
 
 .item-title {
-  font-size: 18px;
-  color: #495057;
+    font-size: 18px;
+    color: #495057;
 }
 
 .item-quantity {
-  font-size: 14px;
-  color: #6c757d;
+    font-size: 14px;
+    color: #6c757d;
 }
 
 .remove-button {
-  background-color: #dc3545;
-  color: white;
-  border: none;
-  padding: 5px 10px;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 14px;
-  transition: background-color 0.3s ease;
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
 }
 
 .remove-button:hover {
-  background-color: #c82333;
+    background-color: #c82333;
 }
 
 .cart-total {
-  text-align: center;
-  margin: 20px 0;
-  font-size: 18px;
-  color: #343a40;
+    text-align: center;
+    margin: 20px 0;
+    font-size: 18px;
+    color: #343a40;
 }
 
 .checkout-button {
-  display: block;
-  width: 100%;
-  padding: 10px 0;
-  background-color: #ee9611;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 16px;
-  font-weight: 600;
-  transition: background-color 0.3s ease;
+    display: block;
+    width: 100%;
+    padding: 10px 0;
+    background-color: #ee9611;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
 }
 
 .checkout-button:hover {
-  background-color: #ddc22c;
+    background-color: #ddc22c;
 }
 
+/* Estilo de la tabla */
 .table {
-  border-collapse: collapse; /* Asegura que las líneas no se dupliquen */
-  width: 100%; /* Ajusta la tabla al ancho del contenedor */
-  margin-top: 20px; /* Opcional, para agregar espacio */
+    border-collapse: collapse;
+    width: 100%;
+    margin-top: 20px;
 }
 
 .table th,
 .table td {
-  border: 1px solid #ddd; /* Agrega un borde a las celdas */
-  padding: 10px; /* Agrega espacio interno en las celdas */
-  text-align: center; /* Centra el contenido */
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
 }
 
 .table thead th {
-  background-color: #f8f9fa; /* Fondo para la cabecera */
-  font-weight: bold; /* Negrita para los encabezados */
-  color: #343a40; /* Color del texto de la cabecera */
-  border-bottom: 2px solid #ddd; /* Línea más gruesa en la cabecera */
+    background-color: #f8f9fa;
+    font-weight: bold;
+    color: #343a40;
+    border-bottom: 2px solid #ddd;
 }
 
 .table tbody tr:nth-child(even) {
-  background-color: #f9f9f9; /* Color alternativo para filas pares */
+    background-color: #f9f9f9;
 }
 
 .table tbody tr:hover {
-  background-color: #f1f1f1; /* Color al pasar el mouse sobre una fila */
-  cursor: pointer; /* Cambia el cursor para mejorar la experiencia */
-}
-.table thead th {
-  background-color: #f8f9fa;
-  color: #343a40;
+    background-color: #f1f1f1;
+    cursor: pointer;
 }
 
-.remove-button {
-  background-color: #dc3545;
-  color: white;
-  border: none;
-  padding: 5px 10px;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 14px;
-  transition: background-color 0.3s ease;
-}
-
-.remove-button:hover {
-  background-color: #c82333;
-}
-
+/* Estilos generales */
 h2 {
-  margin-bottom: 20px;
-  color: black; /* Color de texto más oscuro */
-  font-family: 'Bodoni Moda', serif;
-  font-weight: 500; 
+    margin-bottom: 20px;
+    color: black;
+    font-family: 'Bodoni Moda', serif;
+    font-weight: 500;
 }
 
 a.router-link {
-  color: #6c757d; /* Color medio plomo */
-  text-decoration: none; /* Quitar la línea inferior */
-  font-weight: bold; /* Opcional, para que resalte más */
+    color: #6c757d;
+    text-decoration: none;
+    font-weight: bold;
 }
 
 a.router-link:hover {
-  color: #495057; /* Cambiar el color al pasar el cursor, opcional */
+    color: #495057;
 }
+
+/* Media Queries para adaptar el diseño a pantallas pequeñas */
+@media (max-width: 768px) {
+    .cart-items {
+        padding: 0;
+    }
+
+    .cart-item {
+        flex-direction: column; /* Apilar los ítems */
+        text-align: center;
+        gap: 10px;
+    }
+
+    .cart-total {
+        font-size: 16px;
+    }
+
+    .checkout-button {
+        font-size: 14px;
+    }
+
+    /* Tabla en pantallas más pequeñas */
+    .table {
+        width: 100%;
+    }
+
+    .table th,
+    .table td {
+        padding: 8px;
+        font-size: 14px;
+    }
+
+    .table thead th {
+        background-color: #f8f9fa;
+        font-weight: bold;
+    }
+
+    .remove-button {
+        font-size: 12px;
+        padding: 4px 8px;
+    }
+
+    .quantity-button {
+        font-size: 14px;
+        padding: 5px 8px;
+    }
+}
+
+@media (max-width: 480px) {
+    .table {
+        display: block;
+        overflow-x: auto;
+    }
+
+    .table th,
+    .table td {
+        font-size: 12px;
+        padding: 6px;
+    }
+
+    .cart-item {
+        padding: 8px 0;
+    }
+
+    .cart-item img {
+        width: 30%;
+        height: auto;
+    }
+
+    .cart-item-info {
+        text-align: center;
+    }
+
+    .quantity-control {
+        justify-content: center;
+        gap: 5px;
+    }
+
+    .checkout-button {
+        font-size: 12px;
+        padding: 10px;
+    }
+
+    .cart-total {
+        font-size: 14px;
+    }
+
+    .remove-button {
+        font-size: 10px;
+        padding: 4px 6px;
+    }
+}
+
 </style>

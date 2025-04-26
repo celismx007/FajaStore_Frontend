@@ -177,7 +177,7 @@ onMounted(() => {
 .title {
   text-align: center;
   color: #333;
-  font-size: 28px;
+  font-size: 24px; /* Reducir tamaño en móviles */
   margin-bottom: 20px;
   font-family: 'Roboto', sans-serif;
 }
@@ -197,6 +197,7 @@ onMounted(() => {
   justify-content: space-between;
   padding: 10px 0;
   border-bottom: 1px solid #ddd;
+  flex-wrap: wrap; /* Para mejor disposición en dispositivos móviles */
 }
 
 .item-title {
@@ -219,7 +220,6 @@ onMounted(() => {
 .shipping-details {
   padding: 20px;
   border-radius: 8px;
-
 }
 
 .form-group {
@@ -263,6 +263,7 @@ input, select {
   font-size: 18px;
   color: #888;
 }
+
 .confirmation-message {
   padding: 20px;
   background-color: #e0f7fa;
@@ -270,4 +271,106 @@ input, select {
   border-radius: 5px;
   text-align: center;
 }
+
+/* Media Queries para adaptación a dispositivos móviles */
+@media (max-width: 768px) {
+  .title {
+    font-size: 22px; /* Ajustar tamaño de fuente en móviles */
+  }
+
+  .checkout-container {
+    padding: 10px;
+  }
+
+  .row {
+    display: block; /* En pantallas pequeñas, cambiar el layout */
+    padding: 0;
+  }
+
+  .col-lg-3, .col-lg-4 {
+    width: 100%; /* Colapsar las columnas en móviles */
+    margin-bottom: 20px;
+  }
+
+  .item {
+    justify-content: flex-start;
+    padding: 10px;
+    width: 100%;
+  }
+
+  .item img {
+    width: 25%; /* Ajustar el tamaño de las imágenes en móviles */
+    height: auto;
+  }
+
+  .item-title {
+    font-size: 14px; /* Reducir tamaño de texto en móviles */
+  }
+
+  .item-details {
+    font-size: 12px; /* Reducir tamaño de texto en móviles */
+  }
+
+  .order-summary {
+    margin-bottom: 20px;
+  }
+
+  .cart-total p {
+    font-size: 16px; /* Ajustar tamaño de texto en el total */
+  }
+
+  .form-group input {
+    font-size: 14px; /* Ajustar tamaño de texto en campos de entrada */
+  }
+
+  .confirm-button {
+    font-size: 14px; /* Reducir el tamaño del botón */
+    padding: 12px;
+  }
+
+  .empty-cart p {
+    font-size: 16px; /* Ajustar tamaño de texto en carrito vacío */
+  }
+
+  .confirmation-message p {
+    font-size: 14px; /* Ajustar texto de confirmación */
+  }
+}
+
+/* Media Query para pantallas muy pequeñas */
+@media (max-width: 480px) {
+  .title {
+    font-size: 20px; /* Ajuste adicional para pantallas pequeñas */
+  }
+
+  .confirm-button {
+    font-size: 14px;
+    padding: 15px;
+  }
+
+  .order-summary h3 {
+    font-size: 16px; /* Ajustar tamaño del título */
+  }
+
+  .cart-total p {
+    font-size: 14px; /* Ajustar tamaño de total */
+  }
+
+  .form-group input {
+    padding: 8px; /* Reducir el padding en inputs */
+  }
+
+  .item img {
+    width: 30%; /* Ajustar imagen para pantallas más pequeñas */
+  }
+
+  .item-title {
+    font-size: 13px; /* Ajustar texto de los items */
+  }
+
+  .item-details {
+    font-size: 11px; /* Ajustar detalles de los items */
+  }
+}
+
 </style>

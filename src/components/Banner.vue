@@ -27,7 +27,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="alert alert-custom shadow" role="alert">
+  <div class="banner shadow">
     <div class="banner-container">
       <div class="banner-text">{{ currentAd }}</div>
     </div>
@@ -35,12 +35,17 @@ onMounted(() => {
 </template>
   
 <style scoped>
-.alert {
+.banner {
+  margin-top: 2px;
+  margin-left: 1px;
+  margin-right: 1px;
   position: relative;
-  background:  #17223B;
+  background: #17223B;
   color: #ffffff;
-  padding: 10px;
+  padding: 10px 20px;
   text-align: center;
+  font-family: 'Arial', sans-serif;
+  border-radius: 20px;
 }
 
 .banner-container {
@@ -56,7 +61,6 @@ onMounted(() => {
   position: absolute;
   white-space: nowrap;
   font-weight: bold;
-
   animation: slideIn 6s linear infinite;
   min-width: 100%;
   font-size: 16px;
@@ -78,6 +82,37 @@ onMounted(() => {
   100% {
     transform: translateX(-40%);
     opacity: 0;
+  }
+}
+@media (max-width: 768px) {
+  .banner-container {
+    height: 35px;
+    padding: 0 10px;
+    height: 14px;
+  }
+
+  .banner-text {
+    font-size: 12px;
+    animation: slideInMobile 6s linear infinite;
+  }
+
+  @keyframes slideInMobile {
+    0% {
+      transform: translateX(30%);
+      opacity: 0;
+    }
+    10% {
+      transform: translateX(0);
+      opacity: 1;
+    }
+    90% {
+      transform: translateX(0);
+      opacity: 1;
+    }
+    100% {
+      transform: translateX(-30%);
+      opacity: 0;
+    }
   }
 }
 </style>

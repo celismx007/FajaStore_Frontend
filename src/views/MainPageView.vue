@@ -102,7 +102,7 @@ const goToCategory = (category) => {
 .carousel-container {
   position: relative;
   width: 100%;
-  height: 600px; 
+  height: 600px;
   overflow: hidden;
 }
 
@@ -112,63 +112,10 @@ const goToCategory = (category) => {
   background-size: cover;
   background-position: center;
   transition: background-image 0.5s ease-in-out;
-}
-.carousel-image::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(255, 255, 255, 0); /* Fondo blanco transparente inicialmente */
-  transition: background-color 0.3s ease-in-out; /* Transición suave */
-  pointer-events: none; /* Evita interferir con la interacción del mouse */
-}
-
-.carousel-image:hover::after {
-  background-color: rgba(255, 255, 255, 0.2); /* Fondo blanco tenue */
-}
-
-.prev-button,
-.next-button {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background-color: rgba(255, 255, 255, 0);
-  border: none;
-  font-size: 0.9rem;
-  padding: 10px 20px;
   cursor: pointer;
-  z-index: 10;
 }
 
-.prev-button {
-  left: 10px;
-}
-
-.next-button {
-  right: 10px;
-}
-
-.prev-button:hover,
-.next-button:hover {
-    background-color: rgba(255, 255, 255, 0.2);
-    border-radius: 50px;
-}
-
-/* Estilos para gallery-image */
-.gallery-image {
-    position: relative;
-    display: inline-block;
-    overflow: hidden;
-}
-
-.gallery-image:hover {
-  transform: scale(1.02); /* Efecto de zoom suave */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra adicional */
-}
-
-.gallery-image::after {
+.carousel-image::after {
   content: '';
   position: absolute;
   top: 0;
@@ -180,29 +127,154 @@ const goToCategory = (category) => {
   pointer-events: none;
 }
 
-.gallery-image:hover::after {
-  background-color: rgba(241, 234, 234, 0.2); /* Capa blanca tenue */
+.carousel-image:hover::after {
+  background-color: rgba(255, 255, 255, 0.2);
 }
 
-.category-text { 
+.prev-button,
+.next-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(255, 255, 255, 0);
+  border: none;
+  font-size: 1.5rem;
+  padding: 10px;
+  cursor: pointer;
+  z-index: 10;
+  color: black;
+}
+
+.prev-button {
+  left: 10px;
+}
+.next-button {
+  right: 10px;
+}
+
+.prev-button:hover,
+.next-button:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+}
+
+/* Galería */
+.gallery {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.gallery-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.gallery-image {
+  position: relative;
+  flex: 1 1 45%;
+  min-width: 250px;
+  max-width: 400px;
+  cursor: pointer;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.gallery-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.gallery-image:hover {
+  transform: scale(1.02);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.category-text {
   position: absolute;
   font-family: 'Bodoni Moda', serif;
   color: black;
   left: 10%;
   top: 5%;
 }
-.category-text p { 
-  font-size: 25px;
+
+.category-text p {
+  font-size: 24px;
+  margin-bottom: 5px;
 }
 
-.category-text button { 
+.category-text button {
   border-radius: 15px;
   background-color: transparent;
-  font-size: 18px;
+  font-size: 16px;
+  padding: 6px 12px;
   border: 1px solid black;
+  cursor: pointer;
 }
 
-.category-text button:hover{ 
+.category-text button:hover {
   background-color: silver;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .carousel-container {
+    height: 400px;
+  }
+
+  .prev-button,
+  .next-button {
+    font-size: 1.2rem;
+    padding: 8px;
+  }
+
+  .category-text p {
+    font-size: 18px;
+  }
+
+  .category-text button {
+    font-size: 14px;
+    padding: 5px 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .carousel-container {
+    height: 280px;
+  }
+
+  .gallery-row {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .gallery-image {
+    flex: 1 1 100%;
+    min-width: unset;
+    max-width: 100%;
+  }
+
+  .category-text {
+    left: 5%;
+    top: 5%;
+  }
+
+  .category-text p {
+    font-size: 16px;
+  }
+
+  .category-text button {
+    font-size: 12px;
+    padding: 4px 8px;
+  }
+
+  .prev-button,
+  .next-button {
+    font-size: 1rem;
+    padding: 6px;
+  }
 }
 </style>

@@ -38,18 +38,32 @@ onMounted(() => {
 </script>
 
 <template>
-    <div>
-        <h2>Cinturillas</h2>
+    <div class="container">
+        <h2 class="category-title">Cinturillas</h2>
         <ProductList :products="ListProduct" />
     </div>
 </template>
 
-<style scoped> 
-h2 {
+
+<style scoped>
+/* Asegúrate de que el contenedor y el título se adapten a pantallas móviles */
+.container {
+}
+
+.category-title {
     font-family: 'Playfair Display', serif;
-    /* font-weight: bold;
-    font-size: 28px;
+    font-weight: 500;
     text-align: center;
-    margin-bottom: 30px; */
+    font-size: 1.8rem; /* Tamaño de fuente adecuado para pantallas más grandes */
+}
+
+/* Estilo para pantallas pequeñas */
+@media (max-width: 600px) {
+    .category-title {
+        font-size: 1.5rem; /* Reduce el tamaño del título en pantallas móviles */
+    }
+
+    .container {
+    }
 }
 </style>

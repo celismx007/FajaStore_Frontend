@@ -42,14 +42,11 @@ const onSearch = () => {
 
     <!-- Enlaces de Sign In y Carrito -->
     <div class="icon-container d-flex align-items-center">
-      <a @click="showLoginModal = true">
-        <img class="outline icon-img" src="../assets/iconLogin.png" alt="">
-        <div>
-          
-        </div>
+      <a @click="showLoginModal = true" title="Iniciar sesión">
+        <img class="outline icon-img" src="../assets/iconLogin.png" alt="Iniciar sesión">
       </a>
-      <router-link to="/cart">
-        <img class="outline icon-img" src="../assets/iconCarrito.png" alt="">
+      <router-link to="/cart" title="Ver carrito">
+        <img class="outline icon-img" src="../assets/iconCarrito.png" alt="Carrito de compras">
         <div v-if="notificationCount > 0" class="notification-badge">
           {{ notificationCount }}
         </div>
@@ -61,65 +58,106 @@ const onSearch = () => {
 </template>
 
 <style scoped>
-.search-icon {
-  font-size: 24px; /* Tamaño del ícono */
-  color: #eb1818;     /* Color del ícono */
+.top-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+  gap: 10px;
 }
-.outline {
-  transition: background-color 0.3s ease, color 0.3s ease;
-  cursor: pointer;
-}
-.outline:hover {
-  filter: brightness(1.5); 
-}
+
 .search-bar input {
   font-size: 16px;
-  height: 25px;
-  width: 150px;
+  height: 30px;
+  width: 180px;
+  padding: 0.3rem 0.8rem;
   transition: width 0.4s ease-in-out;
 }
 
 .search-bar input:focus {
-  width: 180px;
+  width: 200px;
   outline: none;
   box-shadow: 0 0 8px rgba(0, 123, 255, 0.25);
 }
+
 .logo {
-  width: auto; /* Ajusta el ancho según el tamaño del logo */
-  margin: 0 auto; /* Centra el logo */
+  max-width: 120px;
+  margin: 0 auto;
 }
+
 .logo-img {
+  width: 100%;
   height: auto;
-  max-width: 100%;
-  display: block; /* Centra la imagen dentro del contenedor */
-  margin: 0 auto; /* Asegura que la imagen esté centrada */
 }
+
 .icon-container {
-  display: flex; /* Asegura que los iconos estén alineados en línea */
-  align-items: center; /* Centra los iconos verticalmente */
-  gap: 20px; /* Espacio entre los iconos */
-  max-width: 100px; /* Establece un ancho máximo para evitar que los contenedores se expandan */
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  position: relative;
 }
+
+.icon-img {
+  width: 32px;
+  height: auto;
+  cursor: pointer;
+  transition: filter 0.3s ease;
+}
+
 .notification-badge {
   position: absolute;
-  top: 90px; /* Ajusta la posición según sea necesario */
-  right: 2px; /* Ajusta la posición según sea necesario */
-  background-color: rgb(235, 51, 19); /* O cualquier color que prefieras */
+  top: -8px;
+  right: -8px;
+  background-color: #e23d1e;
   color: white;
   border-radius: 50%;
-  width: 25px;
-  height: 25px;
+  width: 20px;
+  height: 20px;
+  font-size: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 15px;
-  font-weight: bold;
-  text-decoration: none; /* Elimina subrayados */
 }
-.icon-img {
-  width: 37px; /* Ajusta el ancho de las imágenes de los iconos */
-  height: auto; /* Mantiene la relación de aspecto */
-  transition: filter 0.3s ease;
-  cursor: pointer;
+
+/* RESPONSIVE: Teléfonos */
+@media (max-width: 768px) {
+  .top-bar {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.2rem;
+  }
+
+  .search-bar input {
+    font-size: 14px;
+    height: 28px;
+    width: 100%;
+    max-width: 260px;
+  }
+
+  .logo {
+    max-width: 150px;
+    margin: 0;
+  }
+
+  .icon-container {
+    gap: 24px;
+    justify-content: center;
+  }
+
+  .icon-img {
+    width: 24px;
+  }
+
+  .notification-badge {
+    top: -5px;
+    right: -5px;
+    width: 18px;
+    height: 18px;
+    font-size: 11px;
+  }
 }
+
+
 </style>
