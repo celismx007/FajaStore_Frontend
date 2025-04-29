@@ -155,12 +155,20 @@
 }
 
 @media (max-width: 480px) {
+  .footer {
+    flex-direction: column;
+    padding: 20px 10px;
+  }
+
+  .footer-section {
+    margin: 10px 0;
+  }
   .footer-section h3 {
-    font-size: 15px;
+    font-size: 13px;
   }
 
   .footer-section a {
-    font-size: 14px;
+    font-size: 12px;
   }
 
   .social-links img {
