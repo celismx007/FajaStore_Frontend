@@ -27,7 +27,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="banner shadow">
+  <div class="banner shadow fixed-banner">
     <div class="banner-container">
       <div class="banner-text">{{ currentAd }}</div>
     </div>
@@ -36,16 +36,11 @@ onMounted(() => {
   
 <style scoped>
 .banner {
-  margin-top: 2px;
-  margin-left: 1px;
-  margin-right: 1px;
-  position: relative;
   background: #17223B;
   color: #ffffff;
   padding: 10px 20px;
   text-align: center;
   font-family: 'Arial', sans-serif;
-  border-radius: 20px;
 }
 
 .banner-container {
@@ -85,14 +80,23 @@ onMounted(() => {
   }
 }
 @media (max-width: 768px) {
-  .banner-container {
-    height: 35px;
-    padding: 0 10px;
-    height: 14px;
+  .fixed-banner {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1050;
   }
-
+  .banner {
+    height: 25px;
+    padding: 0 1px;
+  }
+  .banner-container {
+    height: 25px;
+    padding: 0 1px;
+  }
   .banner-text {
-    font-size: 12px;
+    font-size: 11px;
     animation: slideInMobile 6s linear infinite;
   }
 

@@ -104,8 +104,8 @@ onMounted(() => {
 </script>
 
 <template>
-  <nav class="navbar navbar-expand-lg shadow">
-    <div class="container-fluid shadow">
+  <nav class="navbar navbar-expand-lg">
+    <div class="container-fluid">
       <!-- BOTÓN DENTRO DEL CONTAINER -->
       <button class="menu-toggle" @click="toggleMenu">☰</button>
 
@@ -120,7 +120,7 @@ onMounted(() => {
             {{ item.name }}
           </router-link>
           <div 
-            class="dropdown-content shadow" 
+            class="dropdown-content" 
             v-show="activeDropdown === item.name"
           >
             <ul>
@@ -138,10 +138,11 @@ onMounted(() => {
 
 <style scoped>
 nav {
-  padding: 15px;
   font-family: 'Playfair Display', serif; 
   font-size: 15px;
-  background-color: #000000; 
+  background-color: #000;
+  box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.1),
+            0 2px 8px rgba(0, 0, 0, 0.6);
 }
 
 nav a {
@@ -239,6 +240,10 @@ nav a:active {
   color: white;
   cursor: pointer;
   margin-right: 20px;
+  position: fixed;  /* Hace que el botón sea fijo */
+  top: 10px;        /* Ajusta la posición superior */
+  left: 10px;       /* Ajusta la posición izquierda */
+  z-index: 1000;  
 }
 @media (max-width: 768px) {
   nav {
@@ -247,11 +252,16 @@ nav a:active {
 
   .menu-toggle {
     display: block;
-    font-size: 26px;
-    background: none;
-    border: none;
-    color: #fff;
-    cursor: pointer;
+    font-size: 25px;
+    position: fixed;  /* Asegura que el botón sea flotante */
+    top: 30%;        /* Se mantiene en la parte superior */
+    left: 5px;       /* Se mantiene en la esquina superior izquierda */
+    z-index: 1000;  
+    background-color: rgb(10, 10, 10);
+    border-radius: 55%;
+    color: #f1c40f;
+    border-bottom: 1px solid rgba(255, 215, 0, 0.2);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
   }
 
   .navbar-links {
@@ -260,7 +270,14 @@ nav a:active {
     width: 100%;
     text-align: center;
     background-color: #000;
-    padding: 10px 0;
+    position: fixed;  /* Hace que el menú sea flotante */
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100%;     /* Ocupa toda la altura de la pantalla */
+    overflow-y: auto; /* Habilita el desplazamiento si el menú es largo */
+    padding-top: 60px; /* Espacio para que el botón no cubra el menú */
+    z-index: 999;   
   }
 
   .navbar-links.open {
@@ -270,13 +287,11 @@ nav a:active {
   .menu-item {
     width: 100%;
     margin: 10px 0;
-    position: relative;
   }
 
   .menu-item .dropdown-content {
     display: none;
     flex-direction: column;
-    align-items: center;
     background-color: #fff;
     border-radius: 10px;
     padding: 15px;

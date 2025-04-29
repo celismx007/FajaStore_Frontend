@@ -12,6 +12,12 @@ const showLoginModal = ref(false);
 
 const notificationCount = computed(() => store.getters.cartItemCount);
 
+const isSearchVisible = ref(false);
+
+const toggleSearch = () => {
+  isSearchVisible.value = !isSearchVisible.value;
+};
+
 const onSearch = () => {
   //emitir el termino de busqueda al componente pader
   emit('search', searchQuery.value);
@@ -20,17 +26,22 @@ const onSearch = () => {
 </script>
 
 <template>
-  <div class="top-bar d-flex align-items-center justify-content-between p-4">
-    <!-- Buscador -->
-    <div class="search-bar align-items-center">
+  <div class="top-bar d-flex align-items-center justify-content-between p-3 fixed-topbar">
+    <!-- Buscador visible solo en pantallas grandes -->
+    <div class="search-bar align-items-center d-none d-md-flex">
       <input
         type="text"
         v-model="searchQuery"
         @keyup.enter="onSearch"
         class="form-control rounded-pill shadow"
         placeholder="Buscar... 🔍"
-        aria-label="Buscar "
+        aria-label="Buscar"
       />
+    </div>
+
+    <!-- Ícono de búsqueda visible solo en móviles -->
+    <div class="icon-container d-flex d-md-none" @click="toggleSearch">
+      <img src="../assets/searchIcon.png" alt="Buscar" class="icon-img" />
     </div>
 
     <!-- Logo de la tienda -->
@@ -63,8 +74,11 @@ const onSearch = () => {
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  padding: 1rem;
   gap: 10px;
+  background-color: #ffffff; /* Azul muy oscuro, casi negro */
+  color: #f5f5f5; /* Blanco suave */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+  border-bottom: 1px solid rgba(255, 215, 0, 0.2); 
 }
 
 .search-bar input {
@@ -122,32 +136,42 @@ const onSearch = () => {
 
 /* RESPONSIVE: Teléfonos */
 @media (max-width: 768px) {
+  .fixed-topbar {
+    position: fixed;
+    top: 22px;
+    left: 0;
+    right: 0;
+    z-index: 1040;
+  }
   .top-bar {
-    flex-direction: column;
+    flex-direction: row; /* asegura fila */
+    flex-wrap: nowrap;   /* evita que los elementos se vayan a otra línea */
     align-items: center;
-    gap: 1rem;
-    padding: 1.2rem;
+    justify-content: space-between;
+    gap: 0.5rem;
   }
 
   .search-bar input {
     font-size: 14px;
     height: 28px;
     width: 100%;
-    max-width: 260px;
+    max-width: 120px; 
+    border: 1px solid #ccc;
   }
 
   .logo {
-    max-width: 150px;
-    margin: 0;
+    max-width: 125px;
+    margin: 0px;
   }
 
   .icon-container {
-    gap: 24px;
+    gap: 14px;
     justify-content: center;
+    cursor: pointer;
   }
 
   .icon-img {
-    width: 24px;
+    width: 27px;
   }
 
   .notification-badge {
@@ -158,6 +182,4 @@ const onSearch = () => {
     font-size: 11px;
   }
 }
-
-
 </style>

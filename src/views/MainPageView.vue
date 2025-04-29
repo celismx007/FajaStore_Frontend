@@ -28,15 +28,15 @@ const goToCategory = (category) => {
 
 <template>
     <div>
-        <div class="carousel-container mt-3 shadow">
-            <!-- Imagen actual -->
-            <div
-                class="carousel-image"
-                :style="{ backgroundImage: `url(${images[currentIndex]})` }"
-                @click="goToCategory('uso-diario')"
-            ></div>
-        
-            <!-- Botones para navegación -->
+        <!-- Imagen actual -->
+        <div class="carousel-image">
+          <img
+            :src="images[currentIndex]"
+            alt="Carrusel"
+            class="carousel-img"
+            @click="goToCategory('uso-diario')"
+          />
+                      <!-- Botones para navegación -->
             <button class="prev-button" @click="prevImage">❮</button>
             <button class="next-button" @click="nextImage">❯</button>
         </div>
@@ -99,22 +99,19 @@ const goToCategory = (category) => {
   
 
 <style scoped>
-.carousel-container {
-  position: relative;
-  width: 100%;
-  height: 600px;
-  overflow: hidden;
-}
-
 .carousel-image {
   width: 100%;
   height: 100%;
-  background-size: cover;
-  background-position: center;
-  transition: background-image 0.5s ease-in-out;
+  overflow: hidden;
   cursor: pointer;
 }
-
+.carousel-img {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Usa 'cover' si prefieres recorte sin deformar */
+  display: block;
+}
 .carousel-image::after {
   content: '';
   position: absolute;
@@ -141,7 +138,6 @@ const goToCategory = (category) => {
   font-size: 1.5rem;
   padding: 10px;
   cursor: pointer;
-  z-index: 10;
   color: black;
 }
 
@@ -221,14 +217,20 @@ const goToCategory = (category) => {
 
 /* Responsive */
 @media (max-width: 768px) {
-  .carousel-container {
-    height: 400px;
+  .carousel-image {
+    width: 100%;
+    height: auto;
   }
-
+  .carousel-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
   .prev-button,
   .next-button {
-    font-size: 1.2rem;
-    padding: 8px;
+   font-size: 2rem;
+    padding: 9px;
   }
 
   .category-text p {
@@ -242,8 +244,17 @@ const goToCategory = (category) => {
 }
 
 @media (max-width: 480px) {
-  .carousel-container {
-    height: 280px;
+  .carousel-image {
+    position: relative;
+    width: 100%;
+    height: auto;
+  }
+  .carousel-img {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    object-fit: contain; 
+    display: block;
   }
 
   .gallery-row {
@@ -275,6 +286,7 @@ const goToCategory = (category) => {
   .next-button {
     font-size: 1rem;
     padding: 6px;
+    top: 40%;
   }
 }
 </style>
