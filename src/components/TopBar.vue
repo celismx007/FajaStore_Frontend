@@ -2,14 +2,14 @@
 import { computed, ref } from 'vue'; 
 import { useStore } from 'vuex';
 import LoginModal from './LoginModal.vue';
-
+import MobileSearchModal from './modals/MobileSearchModal.vue';
 
 const emit = defineEmits(['search']);
 
 const store = useStore();
 const searchQuery = ref(''); 
 const showLoginModal = ref(false);
-
+const showSearchModal = ref(false);
 const notificationCount = computed(() => store.getters.cartItemCount);
 
 const isSearchVisible = ref(false);
@@ -17,11 +17,15 @@ const isSearchVisible = ref(false);
 const toggleSearch = () => {
   isSearchVisible.value = !isSearchVisible.value;
 };
-
+const onSearchAndClose = () => {
+  onSearch();
+  isSearchVisible.value = false;
+};
 const onSearch = () => {
   emit('search', searchQuery.value);
   searchQuery.value = '';
 };
+
 </script>
 
 <template>
@@ -37,12 +41,16 @@ const onSearch = () => {
         aria-label="Buscar"
       />
     </div>
-
+    
     <!-- Ícono de búsqueda visible solo en móviles -->
-    <div class="icon-container d-flex d-md-none" @click="toggleSearch">
+    <div class="icon-container d-flex d-md-none" @click="showSearchModal = true">
       <img src="../assets/searchIcon.png" alt="Buscar" class="icon-img" />
     </div>
-
+    <MobileSearchModal 
+      :isVisible="showSearchModal" 
+      @close="showSearchModal = false" 
+      @search="(q) => emit('search', q)" 
+    />
     <!-- Logo de la tienda -->
     <div class="logo align-items-center">
       <router-link to="/">
@@ -68,14 +76,43 @@ const onSearch = () => {
 </template>
 
 <style scoped>
+.mobile-search-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  color: white;
+  background-color: rgba(223, 214, 214, 0.5);
+  z-index: 1100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-content {
+  background: white;
+  z-index: 1;
+  padding: 20px;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 400px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+.modal-backdrop {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+}
+
 .top-bar {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
   gap: 10px;
-  background-color: #ffffff; /* Azul muy oscuro, casi negro */
-  color: #f5f5f5; /* Blanco suave */
+  background-color: #ffffff; 
+  color: #f5f5f5; 
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
   border-bottom: 1px solid rgba(255, 215, 0, 0.2); 
   padding: 20px !important;
