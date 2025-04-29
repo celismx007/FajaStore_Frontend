@@ -58,7 +58,7 @@ const closeCart = () => {
             <div v-if="cartItems.length == 0">
                 <p>Tu carrito esta vacio.</p>
             </div>
-            <ul clas="cart-list">
+            <ul class="cart-list">
                 <li  v-for="(item, index) in cartItems" :key="index" class="cart-item">
                     <img width="30%" height="30%" :src=item.images[0].image alt="">
                     <div class="cart-item-info">
@@ -122,7 +122,7 @@ const closeCart = () => {
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5); /* Oscurecido */
-  z-index: 999; /* Debe estar por encima de otros elementos */
+  z-index: 1190;
 }
 .cart-button { 
     position: fixed;
@@ -145,7 +145,7 @@ const closeCart = () => {
     box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5);
     padding: 20px;
     transition: right 0.3s ease;
-    z-index: 1000;
+    z-index: 1200;
     overflow: auto;
     max-width: 100%;
     
@@ -154,7 +154,6 @@ const closeCart = () => {
     text-decoration: none; /* Elimina el subrayado */
 }
 .cart-list {
-    display: flex;
     list-style-type: none;
     padding: 0;
     margin: 0;
@@ -210,4 +209,52 @@ const closeCart = () => {
 .actions:hover {
   background-color: #e0c212;
 }
+@media (max-width: 768px) {
+  .cart-modal {
+    width: 100%;
+    right: -100%;
+    padding: 15px;
+  }
+
+  .cart-open {
+    right: 0;
+  }
+
+  .cart-item {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .cart-item img {
+    width: 100%;
+    height: auto;
+    max-width: 200px;
+    margin-bottom: 10px;
+  }
+
+  .cart-item-info {
+    width: 100%;
+  }
+
+  .quantity-control {
+    justify-content: center;
+    display: flex;
+    gap: 10px;
+  }
+
+  .actions {
+    width: 100%;
+    margin-top: 15px;
+    font-size: 0.9rem;
+    padding: 10px;
+  }
+
+  .close-button {
+    top: 8px;
+    right: 8px;
+    font-size: 18px;
+  }
+}
+
 </style>

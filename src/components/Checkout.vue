@@ -175,13 +175,10 @@ onMounted(() => {
 
 <style scoped>
 .title {
-  text-align: center;
-  color: #333;
-  font-size: 24px; /* Reducir tamaño en móviles */
-  margin-bottom: 20px;
-  font-family: 'Roboto', sans-serif;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem; 
+    color: #17223B;
 }
-
 .order-summary {
   margin-bottom: 30px;
 }
@@ -275,8 +272,9 @@ input, select {
 /* Media Queries para adaptación a dispositivos móviles */
 @media (max-width: 768px) {
   .title {
-    font-size: 22px; /* Ajustar tamaño de fuente en móviles */
-  }
+        padding-top: 24px;
+        font-size: 1.3em; 
+    }
 
   .checkout-container {
     padding: 10px;
@@ -340,8 +338,9 @@ input, select {
 /* Media Query para pantallas muy pequeñas */
 @media (max-width: 480px) {
   .title {
-    font-size: 20px; /* Ajuste adicional para pantallas pequeñas */
-  }
+        padding-top: 24px;
+        font-size: 1.3em; 
+    }
 
   .confirm-button {
     font-size: 14px;

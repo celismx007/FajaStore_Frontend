@@ -22,7 +22,6 @@ const handleLogin = async () => {
       password: password.value
     }, header);
     const dataUser = await axios.get(baseUrl + "user/" + response.data.account.userId, header);
-    console.log(dataUser.data);
     response.data.account.role = dataUser.data.role;
     localStorage.setItem('token', JSON.stringify(response.data.token)); 
     localStorage.setItem('user', JSON.stringify(response.data.account));

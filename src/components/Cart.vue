@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h2>Mi Carrito de Compras</h2>  
+    <h2 class="category-title">Mi Carrito de Compras</h2>  
     <br>
     <div v-if="cartItems.length > 0" >
       <div>  
@@ -111,6 +111,11 @@ const reduceQuantity = (productId) => {
 
 
 <style scoped>
+.category-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem; 
+    color: #17223B;
+}
 .quantity-control {
     display: block;
     padding: 5px;
@@ -255,6 +260,10 @@ a.router-link:hover {
 
 /* Media Queries para adaptar el diseño a pantallas pequeñas */
 @media (max-width: 768px) {
+    .category-title {
+        padding-top: 24px;
+        font-size: 1.3em; 
+    }
     .cart-items {
         padding: 0;
     }
@@ -301,6 +310,10 @@ a.router-link:hover {
 }
 
 @media (max-width: 480px) {
+    .category-title {
+        padding-top: 24px;
+        font-size: 1.3em; 
+    }
     .table {
         display: block;
         overflow-x: auto;
