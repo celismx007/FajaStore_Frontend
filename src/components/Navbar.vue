@@ -143,6 +143,7 @@ nav {
   background-color: #000;
   box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.1),
             0 2px 8px rgba(0, 0, 0, 0.6);
+  padding: 15px;
 }
 
 nav a {
@@ -232,6 +233,7 @@ nav a:active {
 .dropdown-content ul li a:hover {
   color: #007bff;
 }
+
 .menu-toggle {
   display: none;
   font-size: 28px;
@@ -245,6 +247,7 @@ nav a:active {
   left: 10px;       /* Ajusta la posición izquierda */
   z-index: 1000;  
 }
+
 @media (max-width: 768px) {
   nav {
     padding: 1px;

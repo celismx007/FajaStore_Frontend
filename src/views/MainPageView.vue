@@ -112,17 +112,6 @@ const goToCategory = (category) => {
   object-fit: cover; /* Usa 'cover' si prefieres recorte sin deformar */
   display: block;
 }
-.carousel-image::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(255, 255, 255, 0);
-  transition: background-color 0.3s ease-in-out;
-  pointer-events: none;
-}
 
 .carousel-image:hover::after {
   background-color: rgba(255, 255, 255, 0.2);
@@ -154,11 +143,29 @@ const goToCategory = (category) => {
   border-radius: 50%;
 }
 
-/* Galería */
-.gallery {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.gallery-image {
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+}
+
+.gallery-image:hover {
+  transform: scale(1.02); 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+.gallery-image::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0);
+  transition: background-color 0.3s ease-in-out;
+  pointer-events: none;
+}
+.gallery-image:hover::after {
+  background-color: rgba(241, 234, 234, 0.2); /* Capa blanca tenue */
 }
 
 .gallery-row {
@@ -170,12 +177,8 @@ const goToCategory = (category) => {
 
 .gallery-image {
   position: relative;
-  flex: 1 1 45%;
-  min-width: 250px;
-  max-width: 400px;
-  cursor: pointer;
-  overflow: hidden;
-  transition: transform 0.3s ease;
+    display: inline-block;
+    overflow: hidden;
 }
 
 .gallery-image img {

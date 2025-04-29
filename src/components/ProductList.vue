@@ -22,9 +22,9 @@ const props = defineProps({
 <style scoped>
 .product-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, mi  nmax(200px, 1fr));
-  gap: 20px;
-  padding: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 10px;
+  padding: 7px;
 }
 @media (min-width: 768px) {
   .product-grid {

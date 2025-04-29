@@ -1,6 +1,6 @@
 <template>
     <div class="postparto-container">
-      <h2 class="postparto-title">Modeladoras</h2>
+      <h2 class="category-title">Modeladoras</h2>
       <ProductList :products="filteredProducts" />
     </div>
   </template>
@@ -58,39 +58,15 @@
   </script>
   
   <style scoped>
-  /* Contenedor general con espacio en pantallas grandes y ajuste en pantallas móviles */
-  .postparto-container {
-    padding: 20px;
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-  
-  /* Estilo del título con tipografía adaptativa */
-  .postparto-title {
-    font-family: 'Bodoni Moda', serif;
-    font-weight: 600;
-    font-size: clamp(1.5rem, 4vw, 2.5rem); /* Tamaño adaptable para diferentes resoluciones */
-    text-align: center;
-    margin-bottom: 30px;
-    color: #333;
-  }
-  
-  /* Estilo para pantallas más pequeñas */
-  @media (max-width: 768px) {
-    .postparto-container {
-      padding: 10px; /* Ajuste de relleno para pantallas pequeñas */
+  .category-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem; 
+    color: #17223B;
+}
+@media (max-width: 768px) {
+    .category-title {
+      padding-top: 24px;
+      font-size: 1.3em; 
     }
-  
-    .postparto-title {
-      margin-bottom: 15px;
-      font-size: 1.8rem; /* Reducir el tamaño del título en pantallas móviles */
-    }
-  
-    /* Ajustes de espaciado para listas de productos, si es necesario */
-    .product-list {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-      gap: 20px;
-    }
-  }
+}
   </style>

@@ -3,9 +3,6 @@ import HomeView from '../views/HomeView.vue'
 import Cart from '@/components/Cart.vue';
 import Checkout from '@/components/Checkout.vue'
 import MainPageView from '@/views/MainPageView.vue';
-import pijamas from '@/views/pijamas.vue';
-import lenceria from '@/views/lenceria.vue';
-import trajeBanio from '@/views/trajeBanio.vue';
 
 const routes = [
   {

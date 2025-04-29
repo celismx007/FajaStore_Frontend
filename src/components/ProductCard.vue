@@ -41,8 +41,8 @@ const changeImage = (index) => {
         <div class="hover-text">Ver Detalles</div>
       </div>
       <div class="product-info">
-        <h6 class="text-center">{{ product.name }}</h6>
-        <h5 class="text-center"><strong>Bs. {{ product.price }}</strong></h5>
+        <h6 class="text-name text-center">{{ product.name }}</h6>
+        <h5 class="text-price text-center"><strong>Bs. {{ product.price }}</strong></h5>
       </div>
     </div>
 </template>
@@ -54,17 +54,17 @@ const changeImage = (index) => {
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-  background-color: #e6e2e2;
-  border: 1px solid #ddd;
+  background-color: #f8f6f3;
+  border: 1px solid #e4c35f; /* Dorado elegante */
   border-radius: 20px;
   padding: 20px;
   text-align: center;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 12px rgba(191, 161, 69, 0.9);
   transition: background-color 0.3s ease, transform 0.3s ease;
   height: 100%;
 }
 .product-card:hover {
-  background-color: #f5f5f5; 
+  background-color: #f0ede8; 
   transform: scale(1.03); 
 }
 .image-container {
@@ -90,11 +90,12 @@ const changeImage = (index) => {
   bottom: 10px;
   left: 50%;
   transform: translate(-50%, 10px); /* Inicialmente está desplazado */
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: rgba(191, 161, 69, 0.8);
   color: white;
   padding: 5px 10px;
   border-radius: 10px;
-  font-size: 14px;
+  font-weight: bold;
+  font-size: 13px;
   opacity: 0; /* Invisible por defecto */
   transition: opacity 0.3s ease, transform 0.3s ease; /* Efecto suave */
   pointer-events: none; /* Evita que el texto interfiera con el hover */
@@ -114,7 +115,24 @@ const changeImage = (index) => {
   font-size: 16px;
   color: #333;
 }
-.product-card h6, .product-card h5 {
-  margin: 10px 0; /* Espacio entre el texto */
+.text-price {
+  font-size: 1.7rem; 
+  font-family: 'Playfair Display', serif;
+  color: #bfa145;
+}
+.text-name {
+  font-size: 1.5rem; 
+  font-family: 'Playfair Display', serif;
+  color: #bfa145;
+}
+
+@media (max-width: 768px) {
+  .text-name {
+    font-size: 0.8em;
+  }
+
+  .text-price {
+    font-size: 0.9em;
+  }
 }
 </style>

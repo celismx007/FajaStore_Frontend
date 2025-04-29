@@ -3,7 +3,7 @@ import { computed, ref } from 'vue';
 import { useStore } from 'vuex';
 import LoginModal from './LoginModal.vue';
 
-// Define the emit function for emitting events
+
 const emit = defineEmits(['search']);
 
 const store = useStore();
@@ -19,9 +19,8 @@ const toggleSearch = () => {
 };
 
 const onSearch = () => {
-  //emitir el termino de busqueda al componente pader
   emit('search', searchQuery.value);
-  searchQuery.value = ''; // Resetear el campo de búsqueda
+  searchQuery.value = '';
 };
 </script>
 
@@ -79,10 +78,11 @@ const onSearch = () => {
   color: #f5f5f5; /* Blanco suave */
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
   border-bottom: 1px solid rgba(255, 215, 0, 0.2); 
+  padding: 20px !important;
 }
 
 .search-bar input {
-  font-size: 16px;
+  font-size: 18px;
   height: 30px;
   width: 180px;
   padding: 0.3rem 0.8rem;
@@ -96,7 +96,7 @@ const onSearch = () => {
 }
 
 .logo {
-  max-width: 120px;
+  max-width: 300px;
   margin: 0 auto;
 }
 
@@ -108,12 +108,12 @@ const onSearch = () => {
 .icon-container {
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 36px;
   position: relative;
 }
 
 .icon-img {
-  width: 32px;
+  width: 42px;
   height: auto;
   cursor: pointer;
   transition: filter 0.3s ease;
@@ -134,7 +134,6 @@ const onSearch = () => {
   justify-content: center;
 }
 
-/* RESPONSIVE: Teléfonos */
 @media (max-width: 768px) {
   .fixed-topbar {
     position: fixed;
@@ -144,11 +143,12 @@ const onSearch = () => {
     z-index: 1040;
   }
   .top-bar {
-    flex-direction: row; /* asegura fila */
-    flex-wrap: nowrap;   /* evita que los elementos se vayan a otra línea */
+    flex-direction: row; 
+    flex-wrap: nowrap;  
     align-items: center;
     justify-content: space-between;
     gap: 0.5rem;
+    padding: 15px !important;
   }
 
   .search-bar input {

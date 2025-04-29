@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h2>Panel de administracion de productos</h2>
+        <h2 class="category-title">Panel de administracion de productos</h2>
         <br>
         <div>
             <div class="text-end">
@@ -237,16 +237,10 @@ onMounted(() => {
 
 
 <style scoped>
-/* Estilo general para el contenedor */
-.container {
-    padding: 20px;
-}
-
-/* Títulos */
-h2 {
-    font-size: 24px;
-    margin-bottom: 20px;
-    color: #343a40;
+.category-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem; 
+    color: #17223B;
 }
 
 /* Botón "Nuevo" que abre el modal */
@@ -362,7 +356,9 @@ ul li button:hover {
         display: block;
         overflow-x: auto;
     }
-
+    .category-title {
+        font-size: 1.5rem; 
+    }
     .table-products th, .table-products td {
         font-size: 14px;
         padding: 8px;
@@ -398,7 +394,9 @@ ul li button:hover {
 }
 
 @media (max-width: 480px) {
-    /* Ajuste de la tabla */
+    .category-title {
+        font-size: 1.3rem; 
+    }
     .table-products {
         font-size: 12px;
     }
